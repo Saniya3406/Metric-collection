@@ -1,0 +1,17 @@
+# Metric Agent (Go) - Starter
+
+Small system metrics collector that exposes:
+- /metrics (JSON snapshot)
+- /metrics-prom (Prometheus metrics)
+- /healthz
+
+## Build & run
+go mod tidy
+go run ./cmd/agent -listen :9100 -interval 5s
+
+## Docker
+docker build -t metric-agent .
+docker run -p 9100:9100 metric-agent
+
+## Tests
+go test ./... -v
